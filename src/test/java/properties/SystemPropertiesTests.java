@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static java.lang.String.format;
 
-public class SystemPropertiesTests {
+public class SystemPropertiesTests extends TestBase1 {
 
     @Test
     void simplePropertyTest(){
@@ -49,7 +49,7 @@ public class SystemPropertiesTests {
     }
 
     @Test
-    @Tag("one_property")
+    @Tag("Hello")
     void simpleProperty6Test(){
 
 

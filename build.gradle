@@ -76,9 +76,10 @@ task one_property_test(type: Test) {
         events "passed", "skipped", "failed"
     }
 
-        useJUnitPlatform {
-            includeTags("one_property")
-        }
+    useJUnitPlatform {
+        includeTags("one_property")
+    }
+}
 
     task simple1_test(type: Test) {
 
@@ -87,5 +88,12 @@ task one_property_test(type: Test) {
         }
     }
 
+task Hello_test(type: Test) {
 
+    useJUnitPlatform {
+        includeTags("Hello")
+
+        // gradle clean hello_test -Duser_name="Alex Egorov"
+    }
 }
+
