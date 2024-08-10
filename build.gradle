@@ -59,6 +59,7 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    systemProperties(System.getProperties())
 }
 
 task simple_test(type: Test) {
@@ -66,5 +67,25 @@ task simple_test(type: Test) {
     useJUnitPlatform {
         includeTags("simple")
     }
+}
+
+
+task one_property_test(type: Test) {
+
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+
+        useJUnitPlatform {
+            includeTags("one_property")
+        }
+
+    task simple1_test(type: Test) {
+
+        useJUnitPlatform {
+            includeTags("simple1")
+        }
+    }
+
 
 }
