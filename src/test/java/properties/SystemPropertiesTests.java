@@ -1,11 +1,21 @@
 package properties;
 
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.MutableCapabilities;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.HashMap;
 
 import static java.lang.String.format;
 
-public class SystemPropertiesTests extends TestBase1 {
+public class SystemPropertiesTests  {
+
+    private static final Logger logger = LoggerFactory.getLogger(SystemPropertiesTests.class);
 
     @Test
     void simplePropertyTest(){
@@ -48,18 +58,20 @@ public class SystemPropertiesTests extends TestBase1 {
         // gradle clean one_property_test-Dbrowser=safari
     }
 
+
+
     @Test
-    @Tag("Hello")
+    @Tag("fast")
+
+
     void simpleProperty6Test(){
+        logger.info("Начало выполнения теста simpleProperty6Test");
 
 
-        System.out.println(format("Hello,%s!",System.getProperty("user_name","unkown student")));
+
+
+        System.out.println(format("Hello,%s!",System.getProperty("user_name","unknown student")));
 
 
     }
-
-
-
-
-
 }

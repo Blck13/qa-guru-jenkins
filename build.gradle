@@ -55,11 +55,19 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation group: 'com.codeborne', name: 'selenide', version: '7.3.3'
     testImplementation 'io.qameta.allure:allure-selenide:2.28.1'
+
 }
 
-test {
-    useJUnitPlatform()
-    systemProperties(System.getProperties())
+test   {
+    useJUnitPlatform {
+        includeTags 'fast'
+        excludeTags 'slow'
+    }
+    testLogging {
+        events "passed","skipped"
+    }
+    testLogging.showStandardStreams = true
+    //systemProperties(System.getProperties())
 }
 
 task simple_test(type: Test) {
@@ -67,6 +75,10 @@ task simple_test(type: Test) {
     useJUnitPlatform {
         includeTags("simple")
     }
+    testLogging {
+        events "passed","skipped"
+    }
+    testLogging.showStandardStreams = true
 }
 
 
@@ -86,14 +98,28 @@ task one_property_test(type: Test) {
         useJUnitPlatform {
             includeTags("simple1")
         }
+        testLogging {
+            events "passed","skipped"
+        }
+        testLogging.showStandardStreams = true
     }
 
 task Hello_test(type: Test) {
 
     useJUnitPlatform {
-        includeTags("Hello")
+        includeTags("fast")
 
         // gradle clean hello_test -Duser_name="Alex Egorov"
+
+        // ./gradlew clean helloGradle
     }
+    testLogging {
+        events "passed","skipped"
+    }
+    testLogging.showStandardStreams = true
 }
+
+
+
+
 

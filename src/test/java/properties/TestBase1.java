@@ -21,7 +21,7 @@ public class TestBase1 {
 //                "enableVNC", true,
 //                "enableVideo", true
 //        ));
-        Configuration.browserCapabilities = capabilities;
+//        Configuration.browserCapabilities = capabilities;
         Configuration.pageLoadStrategy = "eager";
         Configuration.browserSize = "1920x1080";
         Configuration.timeout = 30000;
