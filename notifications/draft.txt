@@ -1,0 +1,33 @@
+Telegram username:@DonBorisSisk_bot
+Telegram token:6984990624:AAFuOjlV8aJGoyI1GJ_xd5S98f0rWiXK22w
+chat id:-4168022736
+
+
+/////////////////
+Fetch bot updates and look for the chat id:
+
+curl https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/getUpdates | -r '.result[].message.chat.id'
+curl https://api.telegram.org/bot6984990624:AAFuOjlV8aJGoyI1GJ_xd5S98f0rWiXK22w/getUpdates
+
+Send a message using the HTTP API:
+
+curl -X POST
+curl -X POST -H 'Content-Type: application/json'-d '{"chat_id": "-4168022736", "text": "This is a test from bck", "disable_notification": true}'https://api.telegram.org/bot6984990624:AAFuOjlV8aJGoyI1GJ_xd5S98f0rWiXK22w/sendMessage
+
+
+////////////////
+Send a message using the HTTP API:
+
+$uri = 'https://api.telegram.org/bot6984990624:AAFuOjlV8aJGoyI1GJ_xd5S98f0rWiXK22w/sendMessage'
+$body = @{
+    chat_id = "-4168022736"
+    text = "@Bor_is_og kuda mne s toboi idti , loh cveto4nii ?"
+    disable_notification = $true
+}
+Invoke-RestMethod -Uri $uri -Method Post -ContentType 'application/json' -Body ($body | ConvertTo-Json)
+
+
+///////////////
+Run jar with notifications:
+
+java "-DconfigFile=notifications/config.json" -jar notifications/allure-notifications-4.7.0.jar
